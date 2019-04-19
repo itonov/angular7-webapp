@@ -2,9 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCheckboxModule,
   MatFormFieldModule,
-  MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatSnackBarModule
@@ -15,7 +14,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthenticationRoutingModule} from './authentication-routing.module';
-import {AuthService} from '../../core/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -26,16 +24,16 @@ import {AuthService} from '../../core/services/auth.service';
     CommonModule,
     RouterModule,
     AuthenticationRoutingModule,
-    MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatCheckboxModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [],
   exports: [
     LoginComponent,
     RegisterComponent,
