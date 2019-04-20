@@ -1,0 +1,15 @@
+<mat-card>
+  <button mat-raised-button (click)="fileInput.click()" color="accent" type="button"
+          [disabled]="selectedFiles.length === 5">Избери снимки
+  </button>
+  <input type="file" hidden multiple #fileInput>
+
+  <p class="align-self-center" *ngFor="let file of selectedFiles">
+    <span>
+      {{file.name}}
+      <button mat-icon-button type="button" (click)="handleRemove(file)">
+      <mat-icon>delete_forever</mat-icon>
+      </button>
+    </span>
+  </p>
+</mat-card>

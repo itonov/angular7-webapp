@@ -1,0 +1,19 @@
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+}
+
+.custom-form > * {
+  max-width: 200px;
+}
+
+.form-container {
+  align-items: center;
+  display: flex;
+}
+
+.align-self-center {
+  text-align: center;
+}

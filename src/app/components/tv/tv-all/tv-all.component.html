@@ -1,0 +1,33 @@
+<div fxLayout="row wrap"
+     fxLayout.lt-sm="column"
+     fxLayoutGap="32px"
+     fxLayoutAlign="flex-start"
+     class="list-container"
+     *ngIf="(allTvs$ | async) as allTvs; else loadingSpinnerTemplate">
+  <ng-container *ngFor="let tv of allTvs">
+    <mat-card fxFlex="0 1 calc(33.3% - 32px)"
+              fxFlex.lt-md="0 1 calc(50% - 32px)"
+              fxFlex.lt-sm="100%">
+      <img mat-card-image [src]="tv.pictureLocations[0]" alt="Preview picture">
+      <mat-card-header>
+        <mat-card-title>{{tv.brand}}
+        </mat-card-title>
+        <mat-card-subtitle>{{tv.model}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="'/tv/details/' + tv._id">Детайли</button>
+        <button mat-button color="warn" (click)="handleDelete(tv)" *ngIf="user?.isModerator || user?.isAdmin">Изтрий
+        </button>
+        <button mat-button color="accent" [routerLink]="'/admin/tv/edit/' + tv._id"
+                *ngIf="user?.isModerator || user?.isAdmin">Промени
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>
+
+<ng-template #loadingSpinnerTemplate>
+  <div class="spinner-container">
+    <mat-spinner class="align-self-center"></mat-spinner>
+  </div>
+</ng-template>

@@ -1,0 +1,8 @@
+<h2 *ngIf="currentUser; else userLoggedOut">
+  Здравейте, {{currentUser.email}}!
+</h2>
+
+<ng-template #userLoggedOut>
+  <h3>Здравейте, може да се <a routerLink="/auth/register">регистрирате</a> или <a routerLink="/auth/login">влезете</a> в
+    сайта.</h3>
+</ng-template>

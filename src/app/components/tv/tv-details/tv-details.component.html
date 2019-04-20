@@ -1,0 +1,38 @@
+<ng-container *ngIf="(selectedTv$ | async) as tv; else loadingSpinnerTemplate">
+  <div fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="space-around start" class="row-container">
+    <mat-card>
+      <img mat-card-image [src]="selectedPicLocation || tv.pictureLocations[0]" alt="Preview picture"
+           class="preview-picture">
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{tv.brand}} {{tv.model}}</mat-card-title>
+        <mat-card-subtitle>{{tv.price}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{tv.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="start">
+    <mat-card>
+      <div fxLayout="row wrap"
+           fxLayout.lt-sm="column"
+           fxLayoutGap="32px"
+           fxLayoutAlign="flex-start">
+        <img fxFlex="0 1 calc(33.3% - 32px)"
+             fxFlex.lt-md="0 1 calc(50% - 32px)"
+             fxFlex.lt-sm="100%"
+             *ngFor="let pictureLocation of tv.pictureLocations"
+             mat-card-image [src]="pictureLocation" alt="Preview picture" class="available-picture"
+             (click)="selectedPicLocation = pictureLocation">
+      </div>
+    </mat-card>
+  </div>
+</ng-container>
+
+<ng-template #loadingSpinnerTemplate>
+  <div class="spinner-container">
+    <mat-spinner class="align-self-center"></mat-spinner>
+  </div>
+</ng-template>

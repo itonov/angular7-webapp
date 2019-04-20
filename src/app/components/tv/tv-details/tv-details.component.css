@@ -1,0 +1,24 @@
+.preview-picture {
+  max-width: 600px;
+}
+
+.available-picture {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.align-self-center {
+  position: relative;
+  margin: 0 auto;
+}
+
+.spinner-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.row-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

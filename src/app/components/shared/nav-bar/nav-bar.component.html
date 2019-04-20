@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button routerLink="/home" color="accent">Начало</button>
+    <button *ngIf="currentUser?.isAdmin || currentUser?.isModerator" mat-button [matMenuTriggerFor]="addMenu"
+            color="accent">
+      Добави
+    </button>
+    <mat-menu #addMenu>
+      <button mat-menu-item routerLink="/admin/tv/add">Телевизор</button>
+      <button mat-menu-item>Част</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="tvMenu" color="accent">Телевизори</button>
+    <mat-menu #tvMenu>
+      <button mat-menu-item routerLink="/tv/all">Всички</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="partMenu" color="accent">Части</button>
+    <mat-menu #partMenu>
+      <button mat-menu-item>Всички</button>
+    </mat-menu>
+    <span class="custom-spacer"></span>
+    <button mat-button *ngIf="!currentUser" routerLink="/auth/login" color="accent">Вход</button>
+    <button mat-button *ngIf="!currentUser" routerLink="/auth/register" color="accent">Регистрация</button>
+    <button mat-button *ngIf="currentUser" (click)="logout()" color="accent">Изход</button>
+  </mat-toolbar-row>
+</mat-toolbar>

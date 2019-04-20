@@ -1,0 +1,28 @@
+<div class="form-container">
+  <form [formGroup]="form" (submit)="login()" class="custom-form">
+    <h3 class="align-self-center">Вход</h3>
+    <mat-form-field appearance="legacy">
+      <mat-icon matPrefix>alternate_email</mat-icon>
+      <input matInput formControlName="email" placeholder="Имейл" type="email">
+      <!--<mat-hint align="end">{{formControls.email.value?.length || 0}}/10</mat-hint>-->
+      <mat-error *ngIf="formControls.email.touched && formControls.email.errors?.required">
+        Полето е задължително!
+      </mat-error>
+      <mat-error *ngIf="formControls.email.touched && formControls.email.errors?.email">
+        Невалиден имейл!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-icon matPrefix>vpn_key</mat-icon>
+      <input matInput formControlName="password" placeholder="Парола" type="text">
+      <!--<mat-hint align="end">{{formControls.password.value?.length || 0}}/10</mat-hint>-->
+      <mat-error *ngIf="formControls.password.touched && formControls.password.errors?.required">
+        Полето е задължително!
+      </mat-error>
+    </mat-form-field>
+    <p>
+      <mat-checkbox formControlName="rememberMe" color="primary">Запомни ме!</mat-checkbox>
+    </p>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Вход</button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="form-container">
+  <form [formGroup]="tvForm" (submit)="addTv()" class="custom-form">
+    <h3 class="align-self-center">Добави телевизор</h3>
+    <mat-form-field>
+      <input matInput formControlName="brand" placeholder="Марка" type="text">
+      <mat-error *ngIf="formControls.brand.touched && formControls.brand.errors?.required">
+        Полето е задължително!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="model" placeholder="Модел" type="text">
+      <mat-error *ngIf="formControls.model.touched && formControls.model.errors?.required">
+        Полето е задължително!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput formControlName="description" placeholder="Описание" type="text" rows="5">
+        </textarea>
+      <mat-error *ngIf="formControls.description.touched && formControls.description.errors?.required">
+        Полето е задължително!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="price" placeholder="Цена" type="number" min="0">
+      <!--<mat-hint align="end">{{formControls.email.value?.length || 0}}/10</mat-hint>-->
+      <mat-error *ngIf="formControls.price.touched && formControls.model.price?.required">
+        Полето е задължително!
+      </mat-error>
+    </mat-form-field>
+    <p>
+      <app-file-upload (fileListChanged)="selectedPictures = $event"></app-file-upload>
+    </p>
+    <mat-spinner class="align-self-center" diameter="20" *ngIf="currentlyUploading"></mat-spinner>
+    <button mat-raised-button color="primary" type="submit" [disabled]="tvForm.invalid || currentlyUploading">
+      Добави
+    </button>
+  </form>
+</div>

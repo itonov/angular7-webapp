@@ -1,0 +1,15 @@
+.align-self-center {
+  position: relative;
+  margin: 0 auto;
+}
+
+.spinner-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.list-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

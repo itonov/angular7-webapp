@@ -1,14 +1,14 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {SharedModule} from './components/shared/shared.module';
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './components/home/home.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SessionEndInterceptor} from './core/interceptors/session-end.interceptor';
-import {MatSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import {MatSnackBarModule} from '@angular/material';
     HttpClientModule,
     MatSnackBarModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: SessionEndInterceptor, multi: true}],
   bootstrap: [AppComponent]
