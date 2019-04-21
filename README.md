@@ -1,4 +1,30 @@
-<<<<<<< HEAD
+This is project for online store, selling tvs and parts.
+
+Annonymous content:
+
+Home page,
+Register,
+Login,
+Browse tvs,
+TVs details.
+
+User content (logged in):
+
+Home page,
+Logout,
+Browse tvs,
+TVs details.
+
+Admin/Moderator content:
+
+(all user content)
+Add new tvs,
+Delete tvs,
+Edit tvs.
+
+All pictures are being uploaded to OneDrive from the server.
+
+
 # Angular7Webapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
